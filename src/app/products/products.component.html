@@ -1,7 +1,7 @@
 <h1>Ats-Products</h1>
-<div   class="text-center">
+<div class="text-center">
   <label>Category</label>
-  <select  name="categori" class="form-control" #categori (change)="productsBycategory(categori.value)">
+  <select name="categori" class="form-control" #categori (change)="productsBycategory(categori.value)">
     <option value="all">All</option>
     <option *ngFor="let category of categories" value="{{category}}">{{category}}</option>
   </select>
