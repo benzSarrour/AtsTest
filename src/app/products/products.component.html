@@ -1,0 +1,54 @@
+<h1>Ats-Products</h1>
+<div   class="text-center">
+  <label>Category</label>
+  <select  name="categori" class="form-control" #categori (change)="productsBycategory(categori.value)">
+    <option value="all">All</option>
+    <option *ngFor="let category of categories" value="{{category}}">{{category}}</option>
+  </select>
+</div>
+<br>
+<br>
+<br>
+<table class="table table-hover table-bordered">
+  <thead>
+  <th>productName</th>
+  <th>basePrice</th>
+  <th>category</th>
+  <th>brand</th>
+  <th>productMaterial</th>
+  <th>imageUrl</th>
+  <th>delivery</th>
+  <th>details</th>
+  <th>reviews</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of pagedItems">
+    <td> {{product.productName}}</td>
+    <td> {{product.basePrice}}</td>
+    <td> {{product.category}}</td>
+    <td> {{product.brand}}</td>
+    <td> {{product.productMaterial}}</td>
+    <td><img width="200" height="100" src="{{product.imageUrl}}"></td>
+    <td> {{product.delivery}}</td>
+    <td> {{product.details}}</td>
+    <td>
+      <ul *ngFor="let review of product.reviews">
+        <li>{{review.rating}} | {{review.content}}</li>
+      </ul>
+    </td>
+
+  </tr>
+  </tbody>
+
+</table>
+
+<!-- pager -->
+<div class="text-center">
+  <ul *ngIf="pager.pages && pager.pages.length" class="pagination ">
+    <li class="page-item" *ngFor="let page of pager.pages" [class.active]="pager.currentPage === page">
+      <a class="page-link" (click)="setPage(page)">{{page}}</a>
+    </li>
+  </ul>
+</div>
+
+

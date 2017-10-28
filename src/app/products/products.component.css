@@ -1,0 +1,10 @@
+
+th {
+  text-align: center !important;
+  padding: 10px 10px;
+}
+select {
+  width: 250px;
+  display: inline-block;
+}
+
